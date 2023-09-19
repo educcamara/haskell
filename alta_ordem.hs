@@ -17,3 +17,14 @@ dobraE :: (a -> a -> a) -> a -> [a] -> a
 -}
 dobraE func y [x] = func y x
 dobraE func y (x:xs) = dobraE func (func y x) xs
+
+
+
+mapeia :: (a -> b) -> [a] -> [b]
+{-\####FUNÇÃO MAPEAR####
+    Função(Tipo 'a' -> Tipo 'b(iguais ou não))
+    -> lista de 'a's
+    -> Retorna lista do tipo 'b'
+-}
+mapeia func [] = []
+mapeia func (x:xs) = func x : mapeia func xs

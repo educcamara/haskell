@@ -100,3 +100,18 @@ dobraE func y [x] = func y x
 dobraE func y (x:xs) = dobraE func (func y x) xs
 
 ```
+
+### Mapeia
+
+Recebe uma lista de elementos e aplica uma função a cada elemento da lista
+
+```haskell
+{-\####FUNÇÃO MAPEIA####
+    Função de Alta Ordem que recebe uma função e uma lista
+    e aplica a função a cada elemento da lista
+-}
+mapeia :: (a -> b) -> [a] -> [b]
+mapeia func [] = []
+mapeia func (x:xs) = func x : mapeia func xs
+
+```
