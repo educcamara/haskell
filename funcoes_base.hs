@@ -1,3 +1,5 @@
+module funcoesBase where
+
 _divs :: Int -> Int -> [Int]
 {-
 ####Função Auxiliar de Divisores####

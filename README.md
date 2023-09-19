@@ -95,6 +95,23 @@ mapeia func (x:xs) = func x : mapeia func xs
 
 ```
 
+### Filtra
+
+Recebe uma lista de elementos e aplica uma função para que filtrem os elementos da lista
+
+```haskell
+{-\####FUNÇÃO FILTRA####
+    Função de Alta Ordem que recebe uma função e uma lista
+    e aplica a função a cada elemento da lista
+-}
+filtra :: (a -> Bool) -> [a] -> [a]
+filtra func [] = []
+filtra func (x:xs)
+    | func x = x : filtra func xs
+    | otherwise = filtra func xs
+
+```
+
 ## Exercícios
 
 ### Converter para Caixa Alta/Baixa
