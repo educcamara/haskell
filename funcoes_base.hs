@@ -11,7 +11,7 @@ _divs num var
 divisores :: Int -> [Int]
 {-
 ####FUNÇÃO DIVISORES####
-    Recebe Inteiros e Retorna seus Divisores
+    Inteiros -> Lista de seus Divisores
 -}
 divisores num = _divs num 1
 
@@ -20,7 +20,7 @@ divisores num = _divs num 1
 sePrimo :: Int -> Bool
 {-
 ####FUNÇÃO SE PRIMO####
-    Recebe um inteiro e retorna se é primo ou não
+    Inteiro -> É primo ou não (Bool)
 -}
 sePrimo num = divisores num == [1, num]
 
