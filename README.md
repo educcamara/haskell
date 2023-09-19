@@ -115,3 +115,46 @@ mapeia func [] = []
 mapeia func (x:xs) = func x : mapeia func xs
 
 ```
+
+## Exercícios
+
+### Converter para Caixa Alta/Baixa
+
+Dado uma string, a função *caixaAlta* e *caixaBaixa* retornam a string com todas as letras maiúsculas e minúsculas, respectivamente
+
+- **Importar Biblioteca Char:**
+
+Funções *ord* e *chr* que convertem caracteres em números e vice-versa
+
+```haskell
+import Data.Char
+```
+
+- **caixaAlta:**
+
+```haskell
+
+{-\####FUNÇÃO CAIXA ALTA####
+    Recebe uma String e retorna ela em caixa alta
+-}
+caixaAlta :: [Char] -> [Char]
+caixaAlta [] = []
+caixaAlta (x:xs)
+    | ord x >= 97 && ord x <= 122 = chr (ord x - 32) : caixaAlta xs
+    | otherwise = x : caixaAlta xs
+
+```
+
+- **caixaBaixa**
+
+```haskell
+{-\####FUNÇÃO CAIXA BAIXA####
+    Recebe uma String e retorna ela em caixa baixa 
+-}
+caixaBaixa :: [Char] -> [Char]
+caixaBaixa [] = []
+caixaBaixa (x:xs)
+    | ord x >= 65 && ord x <= 90 = chr (ord x + 32) : caixaBaixa xs
+    | otherwise = x : caixaBaixa xs
+
+```
