@@ -61,7 +61,7 @@ sePrimo num = divisores num == [1, num]
     Função de Alta Ordem que recebe uma função, valor auxiliar e
     uma lista que será compactada a um único valor da direita para a esquerda
 -}
-dobraD :: (a -> a -> a) -> a -> [a] -> a
+dobraD :: (a -> b -> b) -> b -> [a] -> b
 dobraD func y [x] = func x y
 dobraD func y (x:xs) = func x (dobraD func y xs)
 
@@ -74,7 +74,7 @@ dobraD func y (x:xs) = func x (dobraD func y xs)
     Função de Alta Ordem que recebe uma função, valor auxiliar e
     uma lista que será compactada a um único valor da esquerda para a direita
 -}
-dobraE :: (a -> a -> a) -> a -> [a] -> a
+dobraE :: (b -> a -> b) -> b -> [a] -> b
 dobraE func y [x] = func y x
 dobraE func y (x:xs) = dobraE func (func y x) xs
 
@@ -152,5 +152,20 @@ caixaBaixa [] = []
 caixaBaixa (x:xs)
     | ord x >= 65 && ord x <= 90 = chr (ord x + 32) : caixaBaixa xs
     | otherwise = x : caixaBaixa xs
+
+```
+
+### Inserir Elemento no Final da Lista
+
+Criar a função *push* utilizadas no tipo de dado *Fila*
+
+```haskell
+{-\####FUNÇÃO PUSH####
+    Recebe um elemento e uma lista e insere o elemento no final da lista
+-}
+
+pushFila :: [a] -> a -> [a]
+pushFila [] e = [e]
+pushFila (x:xs) e = x : pushFila xs e
 
 ```

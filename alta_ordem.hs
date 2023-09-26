@@ -1,21 +1,21 @@
-module altaOrdem where
+module AltaOrdem where
 
-dobraD :: (a -> a -> a) -> a -> [a] -> a
+dobraD :: (a -> b -> b) -> b -> [a] -> b
 {-\####FUNÇÃO DOBRA PELA DIREITA####
-        Função(2 valores 'a' -> 'a') 
-    -> valor 'a' base
+        Função('a' -> 'b' -> 'b') 
+    -> valor 'b' base
     -> lista de 'a's
-    -> Retorna valor compactado do tipo 'a'
+    -> Retorna valor compactado do tipo 'b'
 -}
 dobraD func y [x] = func x y
 dobraD func y (x:xs) = func x (dobraD func y xs)
 
-dobraE :: (a -> a -> a) -> a -> [a] -> a
+dobraE :: (b -> b -> a) -> b -> [a] -> b
 {-\####FUNÇÃO DOBRA PELA DIREITA####
-    Função(2 valores 'a' -> 'a') 
-    -> valor 'a' base
+    Função('b' -> 'a' -> 'a') 
+    -> valor 'b' base
     -> lista de 'a's
-    -> Retorna valor compactado do tipo 'a'
+    -> Retorna valor compactado do tipo 'b'
 -}
 dobraE func y [x] = func y x
 dobraE func y (x:xs) = dobraE func (func y x) xs

@@ -1,4 +1,4 @@
-module funcoesBase where
+module FuncoesBase where
 
 _divs :: Int -> Int -> [Int]
 {-
