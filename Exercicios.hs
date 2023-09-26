@@ -1,17 +1,13 @@
 import Data.Char
 
-ocorrencia :: Eq a => [a] -> a -> Int
-{-
-####FUNÇÃO OCORRÊNCIA####
-    Lista de 'a' -> Tipo 'a' -> Inteiro (quantidade)
--}
-ocorrencia [] e = 0
-ocorrencia (x:xs) e
-    | x == e = 1 + ocorrencia xs e
-    | otherwise = ocorrencia xs e
+menorNum [x] = x
+menorNum (x:y:xs)
+    | x < y = menorNum (x:xs)
+    | otherwise = menorNum (y:xs)
 
-removeDup :: Eq a => [a] -> [a]
-removeDup [] = []
-removeDup (x:xs)
-    | ocorrencia (x:xs) x == 1 =  x : removeDup xs
-    | otherwise = removeDup xs
+seOrdenado :: [Int] -> Bool
+seOrdenado [] = False
+seOrdenado [x] = True
+seOrdenado (x:xs)
+    | x == menorNum (x:xs) = seOrdenado xs
+    | otherwise = False
