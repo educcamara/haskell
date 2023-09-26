@@ -64,6 +64,24 @@ menorNum (x:y:xs)
 
 ```
 
+### Ocorrência de um Elemento
+
+Recebe uma lista de elementos e retorna quantas vezes um elemento aparece na lista
+
+```haskell
+ocorrencia :: Eq a => [a] -> a -> Int
+{-
+####FUNÇÃO OCORRÊNCIA####
+    Lista de tipo genérico 'a' e um outro elemento do mesmo tipo, 
+    retornando inteiro (quantidade de vezes que aparece)
+-}
+ocorrencia [] e = 0
+ocorrencia (x:xs) e
+    | x == e = 1 + ocorrencia xs e
+    | otherwise = ocorrencia xs e
+
+```
+
 ## Funções Alta Ordem
 
 ### Dobra
@@ -216,17 +234,35 @@ pushFila (x:xs) e = x : pushFila xs e
 
 Checa se uma lista está ordenada (crescente)
 
-**Necessidade da função *menorNum***
+**Necessidade da função [*menorNum*](#menor-inteiro-de-uma-lista)**
 
 ```haskell
-seOrdenado :: [Int] -> Bool
 {-\####FUNÇÃO SE ORDENADO####
     Recebe uma lista de inteiros e retorna se está ordenada ou não
 -}
+seOrdenado :: [Int] -> Bool
 seOrdenado [] = False
 seOrdenado [x] = True
 seOrdenado (x:xs)
     | x == menorNum (x:xs) = seOrdenado xs
     | otherwise = False
+
+```
+
+### Remover Duplicatas
+
+Remove elementos duplicados de uma lista
+
+**Necessidade da função [*ocorrencia*](#ocorrência-de-um-elemento)**
+
+```haskell
+{-\####FUNÇÃO REMOVE DUPLICATAS####
+    Recebe uma lista e retorna ela sem duplicatas
+-}
+removeDup :: Eq a => [a] -> [a]
+removeDup [] = []
+removeDup (x:xs)
+    | ocorrencia (x:xs) x == 1 =  x : removeDup xs
+    | otherwise = removeDup xs
 
 ```

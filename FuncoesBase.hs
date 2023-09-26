@@ -35,3 +35,15 @@ menorNum [x] = x
 menorNum (x:y:xs)
     | x < y = menorNum (x:xs)
     | otherwise = menorNum (y:xs)
+
+
+
+ocorrencia :: Eq a => [a] -> a -> Int
+{-
+####FUNÇÃO OCORRÊNCIA####
+    Lista de 'a' -> Tipo 'a' -> Inteiro (quantidade)
+-}
+ocorrencia [] e = 0
+ocorrencia (x:xs) e
+    | x == e = 1 + ocorrencia xs e
+    | otherwise = ocorrencia xs e
