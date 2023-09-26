@@ -1,5 +1,3 @@
-module FuncoesBase where
-
 _divs :: Int -> Int -> [Int]
 {-
 ####Função Auxiliar de Divisores####
@@ -28,3 +26,12 @@ sePrimo num = divisores num == [1, num]
 
 
 
+menorNum :: [Int] -> Int
+{-
+####FUNÇÃO MENOR NÚMERO####
+    Lista de Int -> Inteiro (menor deles)
+-}
+menorNum [x] = x
+menorNum (x:y:xs)
+    | x < y = menorNum (x:xs)
+    | otherwise = menorNum (y:xs)

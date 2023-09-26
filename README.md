@@ -33,9 +33,9 @@ divisores num = _divs num 1
 
 ```
 
-### Primos
+### Primo
 
-Lista de primos com uma função auxiliar de divisores
+Descobre se um inteiro é primo com uma função auxiliar de divisores
 
 ```haskell
 {-
@@ -44,6 +44,23 @@ Lista de primos com uma função auxiliar de divisores
 -}
 sePrimo :: Int -> Bool
 sePrimo num = divisores num == [1, num]
+
+```
+
+### Menor Inteiro de uma Lista
+
+Retorna o menor valor de uma lista de inteiros
+
+```haskell
+menorNum :: [Int] -> Int
+{-
+####FUNÇÃO MENOR NÚMERO####
+    Recebe uma lista de inteiros e retorna o menor valor
+-}
+menorNum [x] = x
+menorNum (x:y:xs)
+    | x < y = menorNum (x:xs)
+    | otherwise = menorNum (y:xs)
 
 ```
 
@@ -192,5 +209,24 @@ Criar a função *push* utilizadas no tipo de dado *Fila*
 pushFila :: [a] -> a -> [a]
 pushFila [] e = [e]
 pushFila (x:xs) e = x : pushFila xs e
+
+```
+
+### Checar Lista Ordenada
+
+Checa se uma lista está ordenada (crescente)
+
+**Necessidade da função *menorNum***
+
+```haskell
+seOrdenado :: [Int] -> Bool
+{-\####FUNÇÃO SE ORDENADO####
+    Recebe uma lista de inteiros e retorna se está ordenada ou não
+-}
+seOrdenado [] = False
+seOrdenado [x] = True
+seOrdenado (x:xs)
+    | x == menorNum (x:xs) = seOrdenado xs
+    | otherwise = False
 
 ```

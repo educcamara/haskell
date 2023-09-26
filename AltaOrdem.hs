@@ -1,5 +1,3 @@
-module AltaOrdem where
-
 dobraD :: (a -> b -> b) -> b -> [a] -> b
 {-\####FUNÇÃO DOBRA PELA DIREITA####
         Função('a' -> 'b' -> 'b') 
