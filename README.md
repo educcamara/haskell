@@ -70,13 +70,38 @@ dobraD func y (x:xs) = func x (dobraD func y xs)
 - **Dobra da Esquerda para a Direita:**
 
 ```haskell
-{-\####FUNÇÃO DOBRA PELA DIREITA####
+{-\####FUNÇÃO DOBRA PELA ESQUERDA####
     Função de Alta Ordem que recebe uma função, valor auxiliar e
     uma lista que será compactada a um único valor da esquerda para a direita
 -}
 dobraE :: (b -> a -> b) -> b -> [a] -> b
 dobraE func y [x] = func y x
 dobraE func y (x:xs) = dobraE func (func y x) xs
+
+```
+
+#### Dobra sem valor auxiliar
+
+- **Dobra Esquerda sem auxiliar:**
+
+```haskell
+-- dobraEsq :: (a -> a -> a) -> [a] -> a
+{-\####FUNÇÃO DOBRA ESQUERDA SEM AUXILIAR####}
+    Função alta ordem que recebe uma função e uma lista retorna a dobra da esquerda para a direita
+-}
+dobraEsq func (x:xs) = dobraE func x xs
+
+```
+
+- **Dobra Direita sem auxiliar:**
+
+```haskell
+-- dobraDir :: (a -> a -> a) -> [a] -> a
+{-\####FUNÇÃO DOBRA DIREITA SEM AUXILIAR####}
+    Função alta ordem que recebe uma função e uma lista retorna a dobra da direita para a esquerda
+-}
+dobraDir func [x] = x
+dobraDir func (x:xs) = func x (dobraDir func xs)
 
 ```
 
